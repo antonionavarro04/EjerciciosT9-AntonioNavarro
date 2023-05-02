@@ -21,8 +21,8 @@ public class Ejercicio2 {
             name = read.nextLine();
             if (name.equalsIgnoreCase("fin")) { // ? Si el usuario introduce fin saldremos del programa
                 break;
-            } else {
-                boolean state = names.add(name); // !? Agregamos el nombre al array y recogemos el estado de la operacion
+            } else { // ? En caso contrario agregaremos el nombre al array
+                boolean state = names.add(name); // ! Recogemos el estado de la operacion
 
                 if (!state) { // ? Si la operación no se ha podido completar mostraremos un mensaje de error
                     System.out.printf("El nombre %s ya se encuentra en el Array\n", name);
