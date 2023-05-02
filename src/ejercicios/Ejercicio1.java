@@ -1,10 +1,10 @@
-package ejercicios.ejercicio1;
+package ejercicios;
 
 import java.util.ArrayList;
 
 import funciones.Mathematics;
 
-public class Main {
+public class Ejercicio1 {
     public static void main(String[] args) {
         // ^ Definimos un arrayList
         ArrayList<Integer> numeros = new ArrayList<Integer>();
