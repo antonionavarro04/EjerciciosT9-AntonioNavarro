@@ -23,8 +23,7 @@ public class Ejercicio4 extends ConsoleManager {
 
         // ^ Definimos variables para la inserción de los números y las capturas de los códigos de error
         Object code;
-        int newValue, intCode = -1;
-        boolean state;
+        int intCode = -1;
         
         do { // ? Mostramos el menú y esperamos a una respuesta por parte del usuario
             System.out.println("1. Introducir serie de Euromillon");
@@ -43,15 +42,12 @@ public class Ejercicio4 extends ConsoleManager {
                     System.out.printf("Introduce el Nº%s: ", i);
                     num = read.nextInt(); read.nextLine(); // ? Limpiamos Búffer
                     code = numeros.put(num, 1); // ! Introducimos el número en el mapa de números
-                    // TODO | ARREGLAR ESTO!!!
+                    // TODO | HACER QUE NO SE PUEDAN REPETIR NUMEROS, ARRAY
                     if (code != null) { // ? Si el código es diferente a null quiere decir que el número ya estaba en el mapa
                         intCode = (Integer) code; // ! Parseamos el codigo a Integer
                     } if (intCode > 0) {
-                        newValue = numeros.get(num); // ! Cogemos el valor que tenga la clave num
-                        state = numeros.replace(num, newValue, newValue + 1); // ! Remplazamos el valor de la clave num por su mismo valor +1
-
-                        System.out.print(state ? "" : "Se ha producido un error"); // ? Si se ha producido algún error lo comunicamos al usuario
-                    }
+                        numeros.replace(num, intCode + 1); // ! Remplazamos el valor de la clave num por su mismo valor +1
+                    } intCode = -1; // ! Reseteamos intCode
                 } for (int i = 1; i <= 2; i++) { // * Bucle de las estrellas
                     System.out.printf("Introduce la estrella Nº%s: ", i);
                     num = read.nextInt(); read.nextLine(); // ? Limpiamos Búffer
@@ -60,10 +56,7 @@ public class Ejercicio4 extends ConsoleManager {
                     if (code != null) { // ? Si el código es diferente a null quiere decir que el número ya estaba en el mapa
                         intCode = (Integer) code; // ! Parseamos el codigo a Integer
                     } if (intCode > 0) {
-                        newValue = estrellas.get(num); // ! Cogemos el valor que tenga la clave num
-                        state = estrellas.replace(num, newValue, newValue + 1); // ! Remplazamos el valor de la clave num por su mismo valor +1
-
-                        System.out.print(state ? "" : "Se ha producido un error"); // ? Si se ha producido algún error lo comunicamos al usuario
+                        estrellas.replace(num, intCode + 1); // ! Remplazamos el valor de la clave num por su mismo valor +1
                     }
                 } break;
 
