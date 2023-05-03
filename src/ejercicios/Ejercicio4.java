@@ -9,7 +9,7 @@ import funciones.ConsoleManager;
 public class Ejercicio4 extends ConsoleManager {
     private static final char SALIR = '3';
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { clear(); // ? Limpiamos la consola nada más entrar
         // ^ Definimos dos TreeSet de Integers, uno para numeros y otros para estrellas(numeros)
         TreeMap<Integer, Integer> numeros = new TreeMap<Integer, Integer>();
         TreeMap<Integer, Integer> estrellas = new TreeMap<Integer, Integer>();
@@ -74,7 +74,7 @@ public class Ejercicio4 extends ConsoleManager {
             } if (opcion != SALIR) { // ? Si la opción es diferente a salir esperamos a que el usuario presione enter para continuar
                 System.out.print("\nPresiona 'enter' para continuar...");
                 read.nextLine();
-                System.out.println(RESET);
+                clear();
             }
         } while (opcion != SALIR);
 
