@@ -17,10 +17,16 @@ public class Ejercicio4 extends ConsoleManager {
         // ^ Definimos una instancia de la clase Scanner
         final Scanner read = new Scanner(System.in).useLocale(Locale.US);
 
+        // ^ Definimos variables para los numeros que se van a introducir y la opción del menú
         int num;
         char opcion;
+
+        // ^ Definimos variables para la inserción de los números y las capturas de los códigos de error
+        Object code;
+        int newValue, intCode = -1;
+        boolean state;
         
-        do {
+        do { // ? Mostramos el menú y esperamos a una respuesta por parte del usuario
             System.out.println("1. Introducir serie de Euromillon");
             System.out.println("2. Ver numeros acumulados");
             System.out.printf("%s. Salir\n", SALIR);
@@ -32,54 +38,47 @@ public class Ejercicio4 extends ConsoleManager {
             }
 
             switch (opcion) {
-                case '1':
-                int newValue;
-                boolean state;
-
-                for (int i = 1; i <= 5; i++) {
-                    Object code;
-                    int intCode = -1;
-
+                case '1': // * Introducir serie
+                for (int i = 1; i <= 5; i++) { // * Bucle de los Números
                     System.out.printf("Introduce el Nº%s: ", i);
                     num = read.nextInt(); read.nextLine(); // ? Limpiamos Búffer
-                    code = numeros.put(num, 1);
-                    
-                    if (code != null) {
-                        intCode = (Integer) code;
+                    code = numeros.put(num, 1); // ! Introducimos el número en el mapa de números
+                    // TODO | ARREGLAR ESTO!!!
+                    if (code != null) { // ? Si el código es diferente a null quiere decir que el número ya estaba en el mapa
+                        intCode = (Integer) code; // ! Parseamos el codigo a Integer
                     } if (intCode > 0) {
-                        newValue = numeros.get(num);
-                        state = numeros.replace(num, newValue, newValue + 1);
+                        newValue = numeros.get(num); // ! Cogemos el valor que tenga la clave num
+                        state = numeros.replace(num, newValue, newValue + 1); // ! Remplazamos el valor de la clave num por su mismo valor +1
 
-                        System.out.print(state ? "" : "Se ha producido un error");
+                        System.out.print(state ? "" : "Se ha producido un error"); // ? Si se ha producido algún error lo comunicamos al usuario
                     }
-                } for (int i = 1; i <= 2; i++) {
-                    Object code;
-                    int intCode = -1;
-
+                } for (int i = 1; i <= 2; i++) { // * Bucle de las estrellas
                     System.out.printf("Introduce la estrella Nº%s: ", i);
                     num = read.nextInt(); read.nextLine(); // ? Limpiamos Búffer
-                    code = estrellas.put(num, 1);
+                    code = estrellas.put(num, 1); // ! Introducimos el número en el mapa de estrellas
                     
-                    if (code != null) {
-                        intCode = (Integer) code;
+                    if (code != null) { // ? Si el código es diferente a null quiere decir que el número ya estaba en el mapa
+                        intCode = (Integer) code; // ! Parseamos el codigo a Integer
                     } if (intCode > 0) {
-                        newValue = estrellas.get(num);
-                        state = estrellas.replace(num, newValue, newValue + 1);
+                        newValue = estrellas.get(num); // ! Cogemos el valor que tenga la clave num
+                        state = estrellas.replace(num, newValue, newValue + 1); // ! Remplazamos el valor de la clave num por su mismo valor +1
+
+                        System.out.print(state ? "" : "Se ha producido un error"); // ? Si se ha producido algún error lo comunicamos al usuario
                     }
                 } break;
 
-                case '2':
-                    System.out.printf("Numeros:\n%s\n\nEstrellas:\n%s\n", numeros, estrellas);
+                case '2': // * Ver Números Acumulados
+                    System.out.printf("Numeros:\n%s\n\nEstrellas:\n%s\n", numeros, estrellas); // ? Imprimimos los números y estrellas
                     break;
 
-                case SALIR:
+                case SALIR: // * Salir del Programa
                     System.out.println("Saliendo del programa...");
                     break;
             
-                default:
+                default: // * Cualquier opción que no este arriba
                     System.out.printf("Opción '%s' inválida\n", opcion);
                     continue;
-            } if (opcion != SALIR) {
+            } if (opcion != SALIR) { // ? Si la opción es diferente a salir esperamos a que el usuario presione enter para continuar
                 System.out.print("\nPresiona 'enter' para continuar...");
                 read.nextLine();
                 System.out.println(RESET);
