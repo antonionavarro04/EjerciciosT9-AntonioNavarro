@@ -1,13 +1,11 @@
 package funciones;
 
-// ? Imports
-import java.lang.Math;
-
 /**
  * Esta clase contiene Métodos útiles para la aplicación rápida de calculos matemáticos.
  * Más adelante se implementarán los métodos esPrimo() y esPar().
+ * Implementado el método isKaprekalar (aceptaelreto.com) https://aceptaelreto.com/problem/statement.php?id=115
  * @author Antonio Navarro
- * @version Beta 1.1
+ * @version Beta 1.2
  * @see java.lang.Math
  */
 public class Mathematics {
@@ -90,6 +88,40 @@ public class Mathematics {
     }
 
     /**
+     * Método que comprueba si ún número es de Kaprekar
+     * @param n Número a comprobar
+     * @return Booleano diciendo si es de Kaprekar (true) o no (false)
+     */
+    public static boolean isKaprekar(int n) { // * En teoría no funciona bien
+        boolean s = false;
+        int n1, n2, nO = n, nE, c, r;
+        if (n != 0) {
+            n *= n;
+            nE = n;
+            c = 0;
+            while (n != 0) {
+                n = n / 10;
+                c++;
+            } if (c % 2 == 1) {
+                c = c / 2 + 1;
+            } else {
+                c = c / 2;
+            } r = 1;
+            while (c != 0) {
+                r *= 10;
+                c--;
+            } n1 = nE / r;
+            n = n1 % 10;
+            if (n == 0) {
+                n1 /= 10;
+            } n2 = nE % r;
+            if (n1 + n2 == nO) {
+                s = true;
+            }
+        } return s;
+    }
+
+    /**
      * Método que devuelve la media entre 2 números
      * @param num1 Primer número
      * @param num2 Segundo número
@@ -145,6 +177,10 @@ public class Mathematics {
         return resultado; // ? Devolovemos el resultado en forma de entero
     }
 
+    /**
+     * Método que devuelve un caracter aleatorio de los que se encuentran en el array CARACTERES
+     * @return
+     */
     public static char randomChar() {
         return CARACTERES.charAt(rng(CARACTERES.length() - 1));
     }
