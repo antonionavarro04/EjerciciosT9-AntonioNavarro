@@ -15,7 +15,7 @@ public class Ejercicio5 extends ConsoleManager {
         HashMap<String, Float> productos = new HashMap<String, Float>();
 
         // ^ Definimos una instancia de la clase Scanner
-        final Scanner read = new Scanner(System.in).useLocale(Locale.US);
+        Scanner read = new Scanner(System.in).useLocale(Locale.US);
 
         // ^ Definimos variables para el nombre y el precio así como una para la opción
         String nombre;

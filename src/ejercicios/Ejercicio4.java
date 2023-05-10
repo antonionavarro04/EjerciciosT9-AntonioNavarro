@@ -15,7 +15,7 @@ public class Ejercicio4 extends ConsoleManager {
         TreeMap<Integer, Integer> estrellas = new TreeMap<Integer, Integer>();
 
         // ^ Definimos una instancia de la clase Scanner
-        final Scanner read = new Scanner(System.in).useLocale(Locale.US);
+        Scanner read = new Scanner(System.in).useLocale(Locale.US);
 
         // ^ Definimos variables para los numeros que se van a introducir y la opción del menú
         int num;

@@ -10,7 +10,7 @@ public class Ejercicio2 {
         LinkedHashSet<String> names = new LinkedHashSet<String>();
 
         // ^ Definimos una instancia de la clase Scanner
-        final Scanner read = new Scanner(System.in).useLocale(Locale.US);
+        Scanner read = new Scanner(System.in).useLocale(Locale.US);
 
         // ^ Definimos una String
         String name;

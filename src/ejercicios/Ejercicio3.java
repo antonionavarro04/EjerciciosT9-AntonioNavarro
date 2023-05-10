@@ -10,7 +10,7 @@ public class Ejercicio3 {
         TreeSet<String> names = new TreeSet<String>();
 
         // ^ Definimos una instancia de la clase Scanner
-        final Scanner read = new Scanner(System.in).useLocale(Locale.US);
+        Scanner read = new Scanner(System.in).useLocale(Locale.US);
 
         // ^ Definimos una String
         String name;
